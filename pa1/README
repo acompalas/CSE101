@@ -1,0 +1,12 @@
+Class: CSE101
+Project: pa1
+Name: Anderson Compalas
+CRUZID: 1793470
+Filename: README
+
+List.h		headerfile for List.c functions 
+List.c		contains functions for implementations
+Lex.c		includes main() function and handles I/O
+ListTest.c	contains test for List functions
+
+
