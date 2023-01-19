@@ -44,12 +44,11 @@ int main(int argc, char *argv[]){
 	rewind(in); //Resets input line to start of file.
 
 	//Build array
-	char** arr = calloc(n, sizeof(char**));
+	char** arr = calloc(n, sizeof(char*));
 	for(int i = 0; i < n; i++){
 		fgets(line, MAX_LEN, in);
 		arr[i] = calloc(strlen(line), sizeof(char));
 		strcpy(arr[i], line);
-		printf("%s",arr[i]);
 	}
 
 	//Build List

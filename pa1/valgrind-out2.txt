@@ -1,1179 +1,1143 @@
-==22093== Memcheck, a memory error detector
-==22093== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==22093== Using Valgrind-3.17.0-07f0cdcbb4-20210319X and LibVEX; rerun with -h for copyright info
-==22093== Command: ./Lex infile2.txt outfile2.txt
-==22093== 
---22093-- Valgrind options:
---22093--    --leak-check=full
---22093--    -v
---22093-- Contents of /proc/version:
---22093--   Linux version 3.10.0-1160.76.1.el7.x86_64 (mockbuild@kbuilder.bsys.centos.org) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-44) (GCC) ) #1 SMP Wed Aug 10 16:21:17 UTC 2022
---22093-- 
---22093-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand-rdseed
---22093-- Page sizes: currently 4096, max supported 4096
---22093-- Valgrind library directory: /opt/rh/devtoolset-11/root/usr/libexec/valgrind
---22093-- Reading syms from /afs/cats.ucsc.edu/users/m/acompala/cse101/pa1/Lex
---22093-- Reading syms from /usr/lib64/ld-2.17.so
---22093--   Considering /usr/lib/debug/.build-id/62/c449974331341bb08dcce3859560a22af1e172.debug ..
---22093--   .. build-id is valid
---22093-- Reading syms from /opt/rh/devtoolset-11/root/usr/libexec/valgrind/memcheck-amd64-linux
---22093--    object doesn't have a symbol table
---22093--    object doesn't have a dynamic symbol table
---22093-- Scheduler: using generic scheduler lock implementation.
---22093-- Reading suppressions file: /opt/rh/devtoolset-11/root/usr/libexec/valgrind/default.supp
-==22093== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-22093-by-acompala-on-unix4.lt.ucsc.edu
-==22093== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-22093-by-acompala-on-unix4.lt.ucsc.edu
-==22093== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-22093-by-acompala-on-unix4.lt.ucsc.edu
-==22093== 
-==22093== TO CONTROL THIS PROCESS USING vgdb (which you probably
-==22093== don't want to do, unless you know exactly what you're doing,
-==22093== or are doing some strange experiment):
-==22093==   /opt/rh/devtoolset-11/root/usr/libexec/valgrind/../../bin/vgdb --pid=22093 ...command...
-==22093== 
-==22093== TO DEBUG THIS PROCESS USING GDB: start GDB like this
-==22093==   /path/to/gdb ./Lex
-==22093== and then give GDB the following command
-==22093==   target remote | /opt/rh/devtoolset-11/root/usr/libexec/valgrind/../../bin/vgdb --pid=22093
-==22093== --pid is optional if only one valgrind process is running
-==22093== 
---22093-- REDIR: 0x4019e40 (ld-linux-x86-64.so.2:strlen) redirected to 0x580cd495 (???)
---22093-- REDIR: 0x4019c10 (ld-linux-x86-64.so.2:index) redirected to 0x580cd4af (???)
---22093-- Reading syms from /opt/rh/devtoolset-11/root/usr/libexec/valgrind/vgpreload_core-amd64-linux.so
---22093-- Reading syms from /opt/rh/devtoolset-11/root/usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
-==22093== WARNING: new redirection conflicts with existing -- ignoring it
---22093--     old: 0x04019e40 (strlen              ) R-> (0000.0) 0x580cd495 ???
---22093--     new: 0x04019e40 (strlen              ) R-> (2007.0) 0x04c30990 strlen
---22093-- REDIR: 0x4019dc0 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4c31aa0 (strcmp)
---22093-- REDIR: 0x401aa80 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4c35b30 (mempcpy)
---22093-- Reading syms from /usr/lib64/libc-2.17.so
---22093--   Considering /usr/lib/debug/.build-id/94/70e279388f7f9cb2ed3b2872d0c2095b191ff4.debug ..
---22093--   .. build-id is valid
---22093-- REDIR: 0x4ecb1d0 (libc.so.6:strcasecmp) redirected to 0x4a247af (_vgnU_ifunc_wrapper)
---22093-- REDIR: 0x4ec7f40 (libc.so.6:strnlen) redirected to 0x4a247af (_vgnU_ifunc_wrapper)
---22093-- REDIR: 0x4ecd4d0 (libc.so.6:strncasecmp) redirected to 0x4a247af (_vgnU_ifunc_wrapper)
---22093-- REDIR: 0x4eca9a0 (libc.so.6:memset) redirected to 0x4a247af (_vgnU_ifunc_wrapper)
---22093-- REDIR: 0x4eca950 (libc.so.6:memcpy@GLIBC_2.2.5) redirected to 0x4a247af (_vgnU_ifunc_wrapper)
---22093-- REDIR: 0x4ec9930 (libc.so.6:__GI_strrchr) redirected to 0x4c30350 (__GI_strrchr)
---22093-- REDIR: 0x4ec0740 (libc.so.6:malloc) redirected to 0x4c2afe0 (malloc)
---22093-- REDIR: 0x4ee0a10 (libc.so.6:__GI_strstr) redirected to 0x4c35dc0 (__strstr_sse2)
---22093-- REDIR: 0x4eca030 (libc.so.6:memchr) redirected to 0x4c31b40 (memchr)
---22093-- REDIR: 0x4ecfc30 (libc.so.6:__GI_memcpy) redirected to 0x4c32750 (__GI_memcpy)
---22093-- REDIR: 0x4ec1160 (libc.so.6:calloc) redirected to 0x4c2f72e (calloc)
---22093-- REDIR: 0x4ec7e10 (libc.so.6:strlen) redirected to 0x4a247af (_vgnU_ifunc_wrapper)
---22093-- REDIR: 0x4faa8b0 (libc.so.6:__strlen_sse2_pminub) redirected to 0x4c308d0 (strlen)
---22093-- REDIR: 0x4ec7850 (libc.so.6:strcpy) redirected to 0x4a247af (_vgnU_ifunc_wrapper)
---22093-- REDIR: 0x4ed57d0 (libc.so.6:__strcpy_sse2_unaligned) redirected to 0x4c309b0 (strcpy)
-==22093== Invalid write of size 1
-==22093==    at 0x4C309E3: strcpy (vg_replace_strmem.c:523)
-==22093==    by 0x4013D9: main (Lex.c:51)
-==22093==  Address 0x520b4cc is 0 bytes after a block of size 12 alloc'd
-==22093==    at 0x4C2F7C8: calloc (vg_replace_malloc.c:1117)
-==22093==    by 0x4013AD: main (Lex.c:50)
-==22093== 
---22093-- REDIR: 0x4ed14b0 (libc.so.6:strchrnul) redirected to 0x4c35650 (strchrnul)
-==22093== Invalid read of size 1
-==22093==    at 0x4E88079: vfprintf (vfprintf.c:1635)
-==22093==    by 0x4E8E4E8: printf (printf.c:34)
-==22093==    by 0x401402: main (Lex.c:52)
-==22093==  Address 0x520b4cc is 0 bytes after a block of size 12 alloc'd
-==22093==    at 0x4C2F7C8: calloc (vg_replace_malloc.c:1117)
-==22093==    by 0x4013AD: main (Lex.c:50)
-==22093== 
---22093-- REDIR: 0x4ec0b60 (libc.so.6:free) redirected to 0x4c2d566 (free)
---22093-- REDIR: 0x4ecab70 (libc.so.6:__GI_mempcpy) redirected to 0x4c35860 (__GI_mempcpy)
-Macrochires
-stylopodium
-dawn
-ignoration
-scrutinization
-parviflorous
-anemopathy
-evocatory
-inmate
-rectricial
-nonrelativity
-Sango
-quasi-realistic
-Pan-Arabic
-Hebrew
-base-ball
-antineutrons
-stockwork
-BSRT
-Criders
-Collbaith
-legitim
-rouged
-nonbody
-Selene
-overmarch
-vivificated
-mesosomatic
-multiview
-athletism
-amalgamation
-gramineous
-payably
-cacodylate
-lintiest
-l-arterenol
-Protobasidii
-hyaloliparite
-life-enriching
-dollship
-theorically
-impressionable
-screek
-metal-sheathed
-pellucidly
-simianity
-Germanton
-Poiana
-pre-emptor
-transferrotype
-Kiel
-siccar
-high-flavored
-re-enjoy
-interluency
-wonton
-skier
-foreseat
-Gymnasium
-Min
-catty-corner
-perron
-medics
-Otariidae
-Linanthus
-florins
-deafly
-premodeled
-spoons
-horol.
-Nierstein
-gunreach
-bonzer
-imbitters
-Gaige
-syntactially
-BUR
-thoracicoacromial
-primed
-correctable
-anticipatorily
-AFB
-sassandra
-boanerges
-accidentarily
-statesboy
-dosimetries
-Keos
-Sara
-preponderate
-red-swelling
-wedgebill
-overhoping
-hallucinated
-aminoazo
-water-living
-unsparred
-regamble
-overprint
-Logi
-swaths
-hotch
-triticism
-Slavo-lithuanian
-oxyluminescence
-Keelung
-therologist
-unnitrogenous
-bolting
-orthoplasy
-papalise
-Viipuri
-interdebating
-ingratitudes
-unbedecked
-uninnocent
-luffer
-chondroitin
-rust-cankered
-Douglasville
-mealymouthedness
-nuts
-subventitious
-interpubic
-amuyong
-heart-hardened
-saints
-dissociality
-benumbment
-camillus
-Lach
-anthraquinol
-Moche
-nonprocedural
-eucalyptic
-precardiac
-redespise
-phytoecological
-unpalled
-sepulchres
-Burrton
-oil-laden
-Bogalusa
-bronchiloquy
-Haughton
-bementite
-Anglo-afghan
-beglerbegship
-winches
-antonomasia
-presubscriber
-Hazelcrest
-Denn
-dilling
-Flindersia
-equisetic
-groundsman
-brattishing
-dysanagnosia
-bastioned
-reprimandingly
-rose-hued
-fogbows
-aims
-saloop
-acidific
-movie
-unfrilled
-Christ-borne
-prosopographical
-euphroes
-oligacanthous
-balneation
-archgod
-intraspecies
-unsignificant
-anti-Roman
-pseudofluctuation
-Chetnik
-sauropsidan
-Loxiinae
-blowy
-pyknoses
-Morrison
-apologete
-ovoplasmic
-vaporoseness
-outflanks
-turnmeter
-acetabular
-frumpish
-adelantados
-Tarnopol
-matchboxes
-pupfishes
-reconfined
-worldly-mindedness
-major-leaguer
-streamingly
-consultants
-Agricola
-Robinsonville
-sol
-self-immurement
-goose-quill
-essayish
-Polyctenidae
-remerging
-self-cruelty
-gegger
-unpredicably
-wharfages
-Leno
-extrahazardous
-nonmischievous
-sulfurized
-microdontous
-confessionalian
-palliditarsate
-superinsist
-backspang
-fit
-capework
-circumradii
-scabiophobia
-treacheries
-anallagmatis
-stuber
-miniver
-dinsome
-Creel
-urinations
-supplicatingly
-fullfaces
-smoothnesses
-snowflower
-crannogs
-epihyal
-platinamin
-squirelet
-marsalas
-Tyndareus
-index
-tide-locked
-Gauntlett
-Asellidae
-eccyclema
-daisy-painted
-navicerts
-hinderance
-nonparabolic
-yerking
-well-erected
-quarterbacking
-akhara
-understriking
-unconfinement
-funicular
-tuedian
-unmaniable
-bioelectrical
-psalteteria
-rewardingness
-overcurtain
-nitrotoluol
-Illinois
-phycocolloid
-Spartansburg
-1080
-morassy
+==16139== Memcheck, a memory error detector
+==16139== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==16139== Using Valgrind-3.17.0-07f0cdcbb4-20210319X and LibVEX; rerun with -h for copyright info
+==16139== Command: ./Lex infile2.txt outfile2.txt
+==16139== 
+--16139-- Valgrind options:
+--16139--    --leak-check=full
+--16139--    -v
+--16139-- Contents of /proc/version:
+--16139--   Linux version 3.10.0-1160.76.1.el7.x86_64 (mockbuild@kbuilder.bsys.centos.org) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-44) (GCC) ) #1 SMP Wed Aug 10 16:21:17 UTC 2022
+--16139-- 
+--16139-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand-rdseed
+--16139-- Page sizes: currently 4096, max supported 4096
+--16139-- Valgrind library directory: /opt/rh/devtoolset-11/root/usr/libexec/valgrind
+--16139-- Reading syms from /afs/cats.ucsc.edu/users/m/acompala/cse101/pa1/Lex
+--16139-- Reading syms from /usr/lib64/ld-2.17.so
+--16139--   Considering /usr/lib/debug/.build-id/62/c449974331341bb08dcce3859560a22af1e172.debug ..
+--16139--   .. build-id is valid
+--16139-- Reading syms from /opt/rh/devtoolset-11/root/usr/libexec/valgrind/memcheck-amd64-linux
+--16139--    object doesn't have a symbol table
+--16139--    object doesn't have a dynamic symbol table
+--16139-- Scheduler: using generic scheduler lock implementation.
+--16139-- Reading suppressions file: /opt/rh/devtoolset-11/root/usr/libexec/valgrind/default.supp
+==16139== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-16139-by-acompala-on-unix6.lt.ucsc.edu
+==16139== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-16139-by-acompala-on-unix6.lt.ucsc.edu
+==16139== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-16139-by-acompala-on-unix6.lt.ucsc.edu
+==16139== 
+==16139== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==16139== don't want to do, unless you know exactly what you're doing,
+==16139== or are doing some strange experiment):
+==16139==   /opt/rh/devtoolset-11/root/usr/libexec/valgrind/../../bin/vgdb --pid=16139 ...command...
+==16139== 
+==16139== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==16139==   /path/to/gdb ./Lex
+==16139== and then give GDB the following command
+==16139==   target remote | /opt/rh/devtoolset-11/root/usr/libexec/valgrind/../../bin/vgdb --pid=16139
+==16139== --pid is optional if only one valgrind process is running
+==16139== 
+--16139-- REDIR: 0x4019e40 (ld-linux-x86-64.so.2:strlen) redirected to 0x580cd495 (???)
+--16139-- REDIR: 0x4019c10 (ld-linux-x86-64.so.2:index) redirected to 0x580cd4af (???)
+--16139-- Reading syms from /opt/rh/devtoolset-11/root/usr/libexec/valgrind/vgpreload_core-amd64-linux.so
+--16139-- Reading syms from /opt/rh/devtoolset-11/root/usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
+==16139== WARNING: new redirection conflicts with existing -- ignoring it
+--16139--     old: 0x04019e40 (strlen              ) R-> (0000.0) 0x580cd495 ???
+--16139--     new: 0x04019e40 (strlen              ) R-> (2007.0) 0x04c30990 strlen
+--16139-- REDIR: 0x4019dc0 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4c31aa0 (strcmp)
+--16139-- REDIR: 0x401aa80 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4c35b30 (mempcpy)
+--16139-- Reading syms from /usr/lib64/libc-2.17.so
+--16139--   Considering /usr/lib/debug/.build-id/94/70e279388f7f9cb2ed3b2872d0c2095b191ff4.debug ..
+--16139--   .. build-id is valid
+--16139-- REDIR: 0x4ecb1d0 (libc.so.6:strcasecmp) redirected to 0x4a247af (_vgnU_ifunc_wrapper)
+--16139-- REDIR: 0x4ec7f40 (libc.so.6:strnlen) redirected to 0x4a247af (_vgnU_ifunc_wrapper)
+--16139-- REDIR: 0x4ecd4d0 (libc.so.6:strncasecmp) redirected to 0x4a247af (_vgnU_ifunc_wrapper)
+--16139-- REDIR: 0x4eca9a0 (libc.so.6:memset) redirected to 0x4a247af (_vgnU_ifunc_wrapper)
+--16139-- REDIR: 0x4eca950 (libc.so.6:memcpy@GLIBC_2.2.5) redirected to 0x4a247af (_vgnU_ifunc_wrapper)
+--16139-- REDIR: 0x4ec9930 (libc.so.6:__GI_strrchr) redirected to 0x4c30350 (__GI_strrchr)
+--16139-- REDIR: 0x4ec0740 (libc.so.6:malloc) redirected to 0x4c2afe0 (malloc)
+--16139-- REDIR: 0x4ee0a10 (libc.so.6:__GI_strstr) redirected to 0x4c35dc0 (__strstr_sse2)
+--16139-- REDIR: 0x4eca030 (libc.so.6:memchr) redirected to 0x4c31b40 (memchr)
+--16139-- REDIR: 0x4ecfc30 (libc.so.6:__GI_memcpy) redirected to 0x4c32750 (__GI_memcpy)
+--16139-- REDIR: 0x4ec1160 (libc.so.6:calloc) redirected to 0x4c2f72e (calloc)
+--16139-- REDIR: 0x4ec7e10 (libc.so.6:strlen) redirected to 0x4a247af (_vgnU_ifunc_wrapper)
+--16139-- REDIR: 0x4faa8b0 (libc.so.6:__strlen_sse2_pminub) redirected to 0x4c308d0 (strlen)
+--16139-- REDIR: 0x4ec7850 (libc.so.6:strcpy) redirected to 0x4a247af (_vgnU_ifunc_wrapper)
+--16139-- REDIR: 0x4ed57d0 (libc.so.6:__strcpy_sse2_unaligned) redirected to 0x4c309b0 (strcpy)
+==16139== Invalid write of size 1
+==16139==    at 0x4C309E3: strcpy (vg_replace_strmem.c:523)
+==16139==    by 0x4013D6: main (Lex.c:51)
+==16139==  Address 0x520b4cc is 0 bytes after a block of size 12 alloc'd
+==16139==    at 0x4C2F7C8: calloc (vg_replace_malloc.c:1117)
+==16139==    by 0x4013AA: main (Lex.c:50)
+==16139== 
+--16139-- REDIR: 0x4ec63c0 (libc.so.6:strcmp) redirected to 0x4a247af (_vgnU_ifunc_wrapper)
+--16139-- REDIR: 0x4f79fc0 (libc.so.6:__strcmp_sse42) redirected to 0x4c31a50 (__strcmp_sse42)
+--16139-- REDIR: 0x4ed14b0 (libc.so.6:strchrnul) redirected to 0x4c35650 (strchrnul)
+--16139-- REDIR: 0x4ec0b60 (libc.so.6:free) redirected to 0x4c2d566 (free)
+--16139-- REDIR: 0x4ecab70 (libc.so.6:__GI_mempcpy) redirected to 0x4c35860 (__GI_mempcpy)
+==16139== Invalid read of size 1
+==16139==    at 0x4E88079: vfprintf (vfprintf.c:1635)
+==16139==    by 0x4E8E4E8: printf (printf.c:34)
+==16139==    by 0x401570: main (Lex.c:81)
+==16139==  Address 0x5210986 is 0 bytes after a block of size 6 alloc'd
+==16139==    at 0x4C2F7C8: calloc (vg_replace_malloc.c:1117)
+==16139==    by 0x4013AA: main (Lex.c:50)
+==16139== 
+--16139-- REDIR: 0x4ec7e60 (libc.so.6:__GI_strlen) redirected to 0x4c308f0 (__GI_strlen)
+==16139== Invalid read of size 1
+==16139==    at 0x4C30904: __GI_strlen (vg_replace_strmem.c:470)
+==16139==    by 0x4EA9FB4: fputs (iofputs.c:34)
+==16139==    by 0x4015A2: main (Lex.c:82)
+==16139==  Address 0x5210986 is 0 bytes after a block of size 6 alloc'd
+==16139==    at 0x4C2F7C8: calloc (vg_replace_malloc.c:1117)
+==16139==    by 0x4013AA: main (Lex.c:50)
+==16139== 
+2709102688191147720037492299591414687459786780893024562380245936718766919396676212731428634241407419647364783684876128281781682049323019809912397536152666323463119645684771679900154713799743442448164640358793523885144151148864733118352654226727316423304661058750548834130338547212869768649918092538060204758833066318658956944805913268018384298466536370420314582847830725631374840076780633747298206727363125957426065446224335042013331188700553364932246571032676993181926967947086053982416497887861116345023423774179942873473218419633408418916573938619147975358016325497793761346930673941242262786901947647131176809991614918431640917341562563852894029764990554360752304220982172461943151599088461473791451283295577286712607464748365991818310872391345729300157675432402143351960429662339914231294352224395209386296046097066350648630240771175129111750098387922363329646067877958594447094152186178497467736553037521785381719935874034676656579555488778497718236704965525897715942575998986247703266285705538280503495639773669349822892543436489274153229906812873876929783127852698393528697886879288445840415878124639534341472441168834868383375981337060883123791815554020544913417075158265517172139965906588585198903074654217098785419762218007126545516229329557434818376644697190233257579353744209832805958490512624572373371204594318072798106821564088997138562893297962438125706953641396856648610522497615163203906016910135737562567726797568366811871373616636419138389972429466957201138281851607112541238271749686935334507556684988708377197803928046376543887306195133528932687784428343021973389193443144186462698549611677019748228647624046219355288712062791969457294274385921699322875033661770227227651067026983916682942528275382954891248819981573760454264896277235779489275876878202142501331070148433965165058940112145658895914117143785568537272310953748518749291756076526387292259877484518510458688279521811078544782175653153193288956944501468987980613558012885264165762661378406403097215702385357543273108817729923179613314866413570728268156667893561505937895274936956491590916978226117741044077619451818257425395512907674775481350888536309668499051959901369319785752954920739490416097147159238932840526297530873297216122532467979118928527126164798821792242995317434243252082034724063835596184511399883545504467636006598544535166065545733427292567373227102345092358802026615915786763326536206896118146858495723939385722499923445174289561988502271690967534442893122875215418735603219303232508100313483443753625429455467693875984484947457166867389894010650577934862714243926903335646796692419632378866495712254646436091029165565072581887898259355228246146561143348238602565964127474442559207875246275611673815115831155177772595391071383052103248988035583011759649190245284834175775889423194992118676265293629063526790843271399959195025235921154536161538414858156392455933196413284734251951815514426
 -form
-walkways
-mites
-Bhutia
-diffidence
-murthering
-monoblepsis
-nonalphabetically
-anchietine
-grayling
-defaillance
-inscribable
-predestinationism
-leach
-yachtmanship
-debuted
-mammilliform
-Wovoka
-phantic
-lame-brain
-vesico-umbilical
-chloroleucite
-six-shafted
-foolmonger
-merrymake
-forebespeak
-claros
-handbells
-Politian
-scarcen
-brain-crumpled
-unseemingly
-chawbuck
-superscribe
-baby-face
-unpetted
-Mangifera
-felonwort
-riddled
-pinnoite
-polyphyletically
-Hulme
-Pucciniaceae
-swindlership
-Nolanville
-pastors
-appersonation
-postdiscoidal
-Susy
-patroclinous
-home-loving
-Zoanthus
-slim-waisted
-Deschutes
-unpuckers
-seacatch
-landlike
-poach
-retransplants
-besnowing
-Judean
-practicableness
-spacetime
-SMASPU
-unbreakable
-titanoniobate
-misdeserve
-Plumularia
-Laertiades
-nontropical
-abulic
-unvulgarized
-Volos
-egoistic
-Gardnerville
-both
-coparent
-Xenocrates
-emma
-desponder
-raspy
-browsability
-doolfu
-gammerel
-setarious
-pessimism
-prescribable
-howling
-contradictory
-well-prosecuted
-awabi
-white-fleshed
-table-faced
-Neopilina
-Sebright
-competencies
-hysteriac
-BLOBS
-Cetraria
-processionalist
-entangler
-gonal
-oreodontine
-go-getterism
-Ali
-concordant
-freehandedness
-Wascott
-trachelo-
-belick
-Lycopodiales
-ungradually
-muster-out
-semidisk
-wigs
-hag
-actuaries
-tatters
-kneehole
-retabulate
-homoptera
-bord-and-pillar
-kahawai
-stagnates
-rennase
-edward
-herbrough
-DP
-Tupis
-wappenschaw
-Pennatulidae
-nudniks
-broadband
-Gildea
-dusenwind
-revealingness
-semble
-chelonin
-guaiocums
-aptly
-pseudoskink
-elevons
-undecreasingly
-wrothsome
-elaine
-armorist
-philotechnical
-Waylan
-summered
-topsiders
-Nimocks
-feudists
-Iva
-calories
-Buerger
-multibreak
-zorils
-sipidity
-stoothing
-butterflylike
-lecanoscopic
-listable
-bridoons
-Raninae
-fortyish
-cancellated
-diaplexus
-omnifacial
-harsh-grating
-carabideous
-psychoprophylaxis
-lituiform
-subpeltated
-synaptene
-undermanning
-still-continuing
-shallow-brained
-paraphilia
-telecinematography
-ethanols
-irritative
-sensiferous
-untimbered
-shriller
-news-seeking
-fluorinates
-obsessiveness
-mercantility
-dungannonite
-BEE
-clearinghouse
-banjo
-mashing
-Doelling
-trichocystic
-ferocity
-Kasubian
-ruby-eyed
-peregrinations
-allochromatic
-coccus
-residentially
-self-repugnance
-Hochman
-bitter-endism
-Maeander
-maras
+-phony
+1080
+AFB
+Aeolidae
 Aggarwal
-Casatus
-adjustage
-Millda
-raffishnesses
-malfunction
-syllabary
-nonsubstitution
-outbear
-cerebellums
-Chaldaical
-counterchanged
-dicoelous
-glassblower
-unstrengthening
-outperform
-Cos
-telosynaptic
-delayage
-louisville
-covariant
-jampan
-stentorine
-chronotropism
-penuckles
-Viscount
-deganglionate
-Rhynd
-think
-centranth
-tsimmes
-surfeit-swelled
-sneaped
-monopody
-unhent
-gloat
-kyanol
-zephyr-fanned
-excitingly
-holl
-unitemized
-purushartha
-farthings
-cardamine
-coffee-brown
-ultracrepidarian
-Half-moslem
-unenterable
-crystallizations
-phenotype
-sadhika
-assonantic
-reinspire
-computerizes
-schoolbooks
-row-boat
-ironheartedly
-subjunct
-pleasure-tired
-Darra
-osoberry
-decriminalization
-unmitred
-escallops
-finespun
-tafwiz
-diachyma
-RITA
-while
-tam-o'-shanter
-Lavallette
-Kitasato
-relegating
-sextodecimos
-expectorant
-mauds
-Scorpaenidae
-auxology
-cotillage
-trueheartedly
-betroths
-unsafeguarded
-seminasal
-outyells
-unfinable
-hydrolytically
-wisha
-prohydrotropic
-cormogen
-preinquisition
-hylology
-hypolimnionia
-pedocal
-planform
-transporters
-gnomists
-neshly
-quadrifrontal
-cut-price
-photomacrography
-noncompensating
-soreheads
-gallicola
-afterdrain
-winkled
-Obeid
-uniform
-spring-board
-clumproot
-packinghouse
-nonfeasibility
-oddness
-novelised
-fadding
-songlike
-respring
-prevariation
-gourdworm
-Pyrosomatidae
-uncorven
+Agricola
+Ali
+Almagest
+Altamahaw
+Amperian
+Anglo-afghan
+Aphelops
 Araxa
-techiness
-bleached
-shide
-hook-snouted
-MFT
-superdevilishly
-catechizer
-Treron
-RIM
-intendency
-entrapment
-tripaschal
-heyduck
-spirit-chilling
-Changoan
-all-availing
-unagreed
-whoremongering
-immunogenetic
-mislighting
-semisocialistically
-korona
-sperone
-Berkley
-Rallinae
+Ardra
+Arica
+Artocarpus
+Asellidae
 Audras
-glucosidase
-arsenetted
-longhairs
-unexplainably
-halbert
-castles
-readdicting
-Mansura
-towelry
-civilise
-Violaceae
-vice-architect
-impersonate
-keynesian
-aspheric
-demagnetized
-pig-footed
-hemihedron
-Jezabella
-trigonometrical
-fricandelle
-Ector
-toccate
-antecedaneous
-heterophagous
-USSCt
-nose-up
-noonday
-ventricolumna
-spectroheliography
-kinetomeric
-silicifluoride
-unarousable
-Sharpsburg
-falderols
-shittier
-sieva
-soller
-byssi
-cell
-preacquitting
-Nanuet
-Derbent
-Beckman
-isosulphocyanate
-deperdite
-montmorillonitic
-bilinguist
-Jack-the-rags
-ambulacrum
-quincewort
-breech-loading
-soundheartedness
-commissionating
-clinah
-Erma
-Monahon
-prefertility
-grip
-emyde
-Elsey
-orality
-terrestriality
-nonheritability
-embolimeal
-spifflicate
-subchief
+Auster
+BEE
+BLOBS
+BSRT
+BUR
 Balanta
-tony
-ionomers
-Midway
-inexistency
-Tazewell
-frolicful
-djakarta
-Stannwood
-Scheel
-nonsegregable
-misshaped
-dandy-roller
-cross-pawl
-deciduitis
-heirship
-preconfiguration
-Torun
-fiddle-faddled
-slows
-child-mindedness
-flavorousness
-Francoist
-thy
-cunningness
-tepetate
-expurgational
-cps
-jorums
-inflexion
-pixies
-steel-digesting
-ornary
-electrography
-Opilia
-hyperelegantly
-Potosi
-bidgee-widgee
-bout
-kodaking
-Jenette
-rogueling
-single-hoofed
-yawney
-sunspottery
-Cariocan
-skyjacks
-tewly
-acroataxia
-conveyability
+Barboza
+Beckman
+Berkley
+Bhutia
+Bogalusa
+Brabazon
+Buerger
+Burrton
 Cahuapana
-Qum
-scissor-winged
-gaster-
-ten-dollar
-birds
-underclift
+Cannstatt
+Cariocan
+Casatus
+Cetraria
+Chaldaical
+Changoan
+Charlena
+Chetnik
+Christ-borne
+Collbaith
+Cos
+Creel
+Criders
+Croesus
+Cyrillaceae
+DP
+Darra
+Denn
+Derbent
+Deschutes
+Doelling
+Douglasville
+Ector
+Elsey
+Engedi
+Erma
+Evans
+Flindersia
+Francoist
+Fusulina
+Gaige
+Gardnerville
+Gauntlett
+Geoffry
+Germanton
+Gildea
+Gymnasium
+Habiru
+Half-moslem
+Hannastown
+Haughton
+Hazelcrest
+Hebrew
+Henka
+Hochman
+Hulme
+Huntersville
+Illinois
+Iva
+Jack-the-rags
+Jenette
+Jezabella
+Judean
+Kasubian
+Keelung
+Keos
+Kiel
+Kitasato
+Krusche
+Lach
+Laertiades
+Lavallette
+Leno
+Lerona
+Levant
+Linanthus
+Logi
+Loxiinae
+Lupinus
+Lycopodiales
+MFT
+Macrochires
+Maeander
+Mahabharata
+Mangifera
+Mansura
+Marilou
+Melisandra
+Midway
+Millda
+Min
+Moche
+Monahon
+Morrison
+Myrtle
+Naemorhedinae
+Nanuet
+Neopilina
+Nierstein
+Nimocks
+Nolanville
+Obeid
+Oceola
+Ongun
+Opilia
+Otariidae
+Pan-Arabic
 Pan-mongolian
-pro-Egyptian
-misanthropi
-chirimen
-aywhere
+Pennatulidae
+Pimpinella
+Piscataqua
+Plumularia
+Poiana
+Politian
+Polyctenidae
+Potosi
+Protobasidii
+Pucciniaceae
+Pyrosomatidae
+Qum
+RIM
+RITA
+Rallinae
+Raninae
+Rhynd
+Robinsonville
+SMASPU
+Sango
+Sara
+Scheel
+Scorpaenidae
+Sebright
+Seeder
+Selene
+Sharpsburg
+Slavo-lithuanian
+Spartansburg
+Stannwood
+Susy
+Tarnopol
+Tazewell
+Tetrabelodon
+Torun
+Treron
+Tupis
+Tyndareus
+USSCt
+Ucalegon
+Vasti
+Viipuri
+Violaceae
+Viscount
+Volos
+Wascott
+Waylan
+Wenlock
+Wovoka
+Xenocrates
+Zoanthus
+abeigh
+abortionist
+abulic
+accidentarily
+acetabular
+acidific
+acroataxia
+actuaries
+adelantados
+adjustage
 adsmith
-plie
+afterdrain
+aims
+akhara
+albolite
+alefnull
+all-availing
+allochromatic
+amalgamation
+ambulacrum
+aminoazo
+amuyong
+anallagmatis
+anchietine
+anemopathy
+anise
+annunciation
+antecedaneous
+anthraquinol
+anti-Roman
+anticipatorily
+antigovernment
+antineutrons
+antonomasia
+apologete
+appersonation
+aptly
+archgod
+armorist
+arsenetted
+aspheric
+assonantic
+astrometeorology
+athletism
+attatches
+autoimmunities
+auxology
+awabi
+aywhere
+baby-face
+backspang
+baggers
+balneation
+banjo
+barogram
+base-ball
+bastioned
+baulkier
+beanbag
+beglerbegship
+belick
+bementite
+benumbment
+besnowing
+betroths
+bidgee-widgee
+bilinguist
+bioelectrical
+birds
+bitter-endism
+black-tressed
+bleached
+blowy
+boanerges
+bolting
+bonzer
+bord-and-pillar
+both
+bout
+brain-crumpled
+brattishing
+breech-loading
+bridoons
+broadband
+bronchiloquy
+browsability
+bullit
+butterflylike
+byssi
+cacodylate
+calderas
+calories
+camillus
+cancellated
+capework
+carabideous
+cardamine
+carpium
+castles
+catechizer
+catty-corner
+cay
+cell
+centranth
+cerebellums
+chawbuck
+chelonin
+child-mindedness
+chirimen
+chloroleucite
+chondroitin
+chronotropism
+chuter
+cinderman
+circumradii
+civilise
+claros
+clearinghouse
+clinah
+close-bred
+clumproot
+coalitions
+coccus
+coderives
+coffee-brown
+coinquinate
+colophonate
+combinatorics
+commissionating
+competencies
+computerizes
+concordant
+confessionalian
+conichalcite
+consence
+consultants
+contradictory
+conveyability
+coparent
+coracomandibular
+cormogen
+correctable
+cotillage
+counterchanged
+countersconce
+covariant
+cps
+crannogs
+cross-pawl
+crumblingness
+crystallizations
+cufflinks
+cunningness
+cursedest
+cut-price
+cyclopentene
+dackered
+daisy-painted
+dandy-roller
+dawn
+deafly
+debuted
+deciduitis
+decriminalization
+defaillance
+deganglionate
+delayage
+demagnetized
+demodulator
+deperdite
+desponder
+detritus
+devouringly
+diachyma
+diaplexus
+dicoelous
+diffidence
+dilling
+dinsome
+dipppier
+disassembler
+disconvenient
+disfellowship
+dislikeful
+disponed
+dissociality
+ditches
+djakarta
+dollship
+doolfu
+dosimetries
+drawings-in
+drivellingly
+drunkest
+dudine
+dungannonite
+dusenwind
+dysanagnosia
+earthiest
+eccyclema
+edward
+egoistic
+elaine
+electrography
+elevons
+embolimeal
+emma
+emyde
+encoring
+endophasia
+enneahedral
+entangler
+entrapment
+epencephalons
+epihyal
+epitheliomatous
+equisetic
+escallops
+essayish
+ethanols
+eucalyptic
+euphroes
+evocatory
+excitingly
+exhilarator
+expectorant
+expurgational
+extrahazardous
+eye-lotion
+fadding
+falderols
+fantailed
+farthings
+fault-slip
+felonwort
+ferocity
+feudists
+fiddle-faddled
+filbert
+finespun
+fire-retarded
+fit
+flamelike
+flavorousness
+florins
+fluorinates
+fogbows
+foolmonger
+forebespeak
+foreseat
+fortyish
+fourteens
+freehandedness
+fricandelle
+frolicful
+frumpish
+fullfaces
+funicular
+gallicola
+gammerel
+gaster-
+gegger
+generous-hearted
+ghostcraft
+girlhoods
+glassblower
+gloat
+glucosidase
+gnomists
+go-getterism
+gonal
+goose-quill
+gourdworm
+gramineous
+graphiological
+grayling
+greeny
+grip
+groundsman
+guaiocums
+guidwife
+gunreach
+hag
+halbert
+hallucinated
+handbells
+hard-mouthed
+harsh-grating
+heart-hardened
+heirship
+helming
+hemihedron
+herbrough
+herrenvolk
+heterophagous
+heyduck
+high-flavored
+hinderance
+hissel
+holl
+home-loving
+homoptera
+hook-snouted
+horol.
+hotch
+howling
+hyaloliparite
+hydrolytically
+hylology
+hyperelegantly
+hypersuggestibleness
+hypolimnionia
+hysteriac
+ichorrhemia
+idiasm
+ignoration
+imbitters
+immunogenetic
+impersonate
+impressionable
+inaptly
+inclinable
+incorrupt
+index
+indols
+inexistency
+inflexion
+ingratitudes
+inmate
+inscribable
+instigated
+intendency
+interdebating
+interluency
+interpubic
+intervisitation
+intraspecies
+inventory
+ionomers
+ironheartedly
+irritative
 isocarbostyril
+isosulphocyanate
+jampan
+jaunder
+jocooserie
+jorums
+junks
+kahawai
+kangaroo-rat
+keynesian
+kinetomeric
+kneehole
+kodaking
+korona
+kyanol
+l-arterenol
+lame-brain
+landlike
+laparohepatotomy
+latibulize
+leach
+lecanoscopic
+legitim
+liberalizations
+life-enriching
+likerous
+lintiest
+listable
+lituiform
+lobotomized
+longhairs
+lophin
+louisville
+luffer
+maat
+major-leaguer
+malfunction
+mammilliform
+maras
+marsalas
+mashing
+matchboxes
+mauds
+mazes
+mealymouthedness
+medics
+megaton
+men-children
+mercantility
+merrymake
+mesosomatic
+metal-sheathed
+methobromide
+microdontous
+microstomatous
+miniver
+misanthropi
+misdeserve
+mislighting
+misshaped
+mites
+monoblepsis
+monopody
+montmorillonitic
+morassy
+motiving
+movie
+mucronated
+multibreak
+multiview
+murthering
+muster-out
+myelographically
+nasiform
+navicerts
+neck-tie
+neguses
+neshly
+neuroplasm
+news-seeking
+nitrotoluol
+non-English
+nonalphabetically
+nonbody
+noncompensating
+noncredibly
+nondichogamic
+nonfeasibility
+nonheritability
+nonirate
+nonmischievous
+nonparabolic
+nonprocedural
+nonrelativity
+nonsegregable
+nonsubstitution
+nontropical
+noonday
+nose-up
+novelised
+nudniks
+nuts
+obsessiveness
+oddness
+off-color
+oil-laden
+oligacanthous
+omnifacial
+opaled
+orality
+oreodontine
+ornary
+orthoplasy
+osoberry
+outbear
+outflanks
+outperform
+outsparkle
+outyells
+overbookish
+overcurtain
+overextends
+overhoping
+overmarch
+overprint
+overshadower
+overtensely
+ovoplasmic
+oxyluminescence
+packinghouse
+painkilling
+palatomaxillary
+palliditarsate
+papalise
+paradigm
+paraphilia
+parental
 parotidean
+parviflorous
+pastors
+patroclinous
+payably
+peats
+pedocal
+pellucidly
+penuckles
+peregrinations
+perigon
+peritoneoclysis
+perron
+pessimism
+pettygod
+phantic
+phenotype
+philotechnical
+photomacrography
+phycocolloid
+phytoecological
+pickthatch
+pig-footed
+pinnoite
+pixies
+planform
+platinamin
+pleasure-tired
+plie
+poach
+polyphyletically
+pompoms
+poppy-flowered
+portmantle
+postdiscoidal
+postponement
+practicableness
+pre-emptor
+preacquitting
+precardiac
+preconfiguration
+predestinationism
+prefertility
+preinquisition
+premodeled
+preponderate
+prescribable
+presubscriber
+prevariation
+primed
+prize-fighter
+pro-Egyptian
+processionalist
+prohydrotropic
+promptuary
+proportionability
+prosopographical
+proud-minded
+psalteteria
+pseudofluctuation
+pseudoskink
+psychoprophylaxis
+pulpitical
+pupfishes
+purushartha
+pyknoses
+quadrifrontal
+quarterbacking
+quasi-ethical
+quasi-realistic
+quenelle
+quincewort
+raclettes
+raffishnesses
+raspy
+ravishedly
+re-enjoy
+readdicting
+rearhorse
+rebounded
+recidivous
+reconfined
+rectricial
+red-swelling
+redespise
+refiners
+regamble
+rehaul
+reinspire
+relegating
+remerging
+rennase
+repenalize
+reprimandingly
+reremmice
+residentially
+respring
+retabulate
+retransplants
+revealingness
+rewardingness
+rheumiest
+riddled
+rogueling
+ronnels
+rose-hued
+rouged
+row-boat
+ruby-eyed
+rumina
+rust-cankered
+sabre
+sadhika
+saints
+saloop
+samites
+sassandra
+sauropsidan
+scabiophobia
+scarcen
+schoolbooks
+scissor-winged
+screek
+scrutinization
+seacatch
+self-cruelty
+self-immurement
+self-repugnance
+semble
+semidisk
+seminasal
+semisocialistically
+sensiferous
+sepulchres
+serolipase
+setarious
+sextodecimos
+shallow-brained
+she-fool
+shide
+shittier
+shortenings
+shriller
+siccar
+sieva
+silicifluoride
+simianity
+single-hoofed
+sipidity
+six-shafted
+skier
+skyjacks
+slim-waisted
+slows
+smoothnesses
+sneaped
+snowflower
+sociogram
+sol
+soller
+songlike
+soreheads
+soundheartedness
+spacetime
+spectroheliography
+sperone
+spifflicate
+spirit-chilling
+splenolymphatic
+spoons
+spring-board
+squalliest
+squirelet
+stagnates
+statesboy
+steel-digesting
+stentorine
+sternway
+still-continuing
+stockwork
+stoothing
+straightforwardness
+streamingly
+stripteased
+stuber
+stylopodium
+subchief
+subemarginate
+subjunct
+subpeltated
+substalagmite
+subventitious
+suffixion
+sulfurized
+summered
+sunspottery
+superdevilishly
+superinsist
+superscribe
+supplicatingly
+surfeit-swelled
+swaths
+swindlership
+syllabary
+synaptene
+syntactially
+table-faced
+tafwiz
+talesman
+tam-o'-shanter
+tapadera
+tatters
+techiness
+telecinematography
+telosynaptic
+ten-dollar
+tepetate
+terrestriality
+tewly
+theaterless
+theorically
+therologist
+think
+thoracicoacromial
+three-aisled
+throned
+thy
+tide-locked
+tilty
+tinkerwise
+titanoniobate
+toccate
+toluyl
+tony
+topsiders
+towelry
+trachelo-
+trainmaster
+transferrotype
+transporters
+treacheries
+trichocystic
+trigonometrical
+tripaschal
+triticism
+trophaea
+trueheartedly
+tsimmes
+tuedian
+turnmeter
+tweed
+twice-negotiated
+twistical
+ultracrepidarian
+umpteenth
+unagreed
+unarousable
+unbedecked
+unbreakable
+uncensured
+unclouding
+unconfinement
+uncorven
+undecreasingly
+underclift
+undermanning
+understriking
+undine
+unduchess
+unenterable
+unexplainably
+unfinable
+unfrilled
+ungradually
+unhent
+uniform
+uninnocent
+unitemized
+unlearnableness
+unmaniable
+unmitred
+unnitrogenous
+unpalled
+unpetted
+unpredicably
+unpuckers
+unredemptive
+unrespectiveness
+unsafeguarded
+unseemingly
+unsignificant
+unsparred
+unstrengthening
+unsymbolized
+untimbered
+untwist
+unvulgarized
 unwry
 uppent
-endophasia
-neuroplasm
-hissel
-velds
-she-fool
-attatches
-overbookish
-coracomandibular
-Pimpinella
-Levant
-tapadera
-maat
-Engedi
-poppy-flowered
-demodulator
-overshadower
-raclettes
-pulpitical
-unlearnableness
-countersconce
-close-bred
-junks
-earthiest
-proud-minded
-disponed
-colophona--22093-- REDIR: 0x4ec63c0 (libc.so.6:strcmp) redirected to 0x4a247af (_vgnU_ifunc_wrapper)
---22093-- REDIR: 0x4f79fc0 (libc.so.6:__strcmp_sse42) redirected to 0x4c31a50 (__strcmp_sse42)
-==22093== Invalid read of size 1
-==22093==    at 0x4E88079: vfprintf (vfprintf.c:1635)
-==22093==    by 0x4E8E4E8: printf (printf.c:34)
-==22093==    by 0x40159C: main (Lex.c:82)
-==22093==  Address 0x5210986 is 0 bytes after a block of size 6 alloc'd
-==22093==    at 0x4C2F7C8: calloc (vg_replace_malloc.c:1117)
-==22093==    by 0x4013AD: main (Lex.c:50)
-==22093== 
---22093-- REDIR: 0x4ec7e60 (libc.so.6:__GI_strlen) redirected to 0x4c308f0 (__GI_strlen)
-==22093== Invalid read of size 1
-==22093==    at 0x4C30904: __GI_strlen (vg_replace_strmem.c:470)
-==22093==    by 0x4EA9FB4: fputs (iofputs.c:34)
-==22093==    by 0x4015CE: main (Lex.c:83)
-==22093==  Address 0x5210986 is 0 bytes after a block of size 6 alloc'd
-==22093==    at 0x4C2F7C8: calloc (vg_replace_malloc.c:1117)
-==22093==    by 0x4013AD: main (Lex.c:50)
-==22093== 
-te
-paradigm
-Vasti
-unduchess
-Ucalegon
-tweed
-vrows
-megaton
-drunkest
-Habiru
-Tetrabelodon
-palatomaxillary
-toluyl
-hypersuggestibleness
-samites
-Fusulina
-flamelike
-pettygod
-Auster
-unrespectiveness
-kangaroo-rat
-ghostcraft
-Piscataqua
-graphiological
-Arica
-Croesus
-greeny
-ichorrhemia
-disassembler
-enneahedral
-splenolymphatic
-zamarra
-Geoffry
-consence
-fourteens
-neck-tie
-nonirate
-parental
-detritus
-uncensured
-umpteenth
-twice-negotiated
-exhilarator
-intervisitation
-Charlena
-mucronated
-Ongun
-epencephalons
-generous-hearted
-encoring
-Krusche
-Huntersville
-black-tressed
-jocooserie
-inclinable
-motiving
-pickthatch
-abeigh
-Myrtle
-wage-plug
-latibulize
-overtensely
-beanbag
-Oceola
-untwist
-rebounded
-stripteased
-instigated
-ditches
-conichalcite
-shortenings
-opaled
-herrenvolk
-rehaul
-fantailed
-methobromide
-unclouding
-coinquinate
-throned
-Brabazon
-lobotomized
-Marilou
-trainmaster
-Ardra
-drivellingly
-Lerona
-jaunder
-idiasm
-overextends
-disconvenient
-Aphelops
-suffixion
-disfellowship
-laparohepatotomy
-filbert
-cinderman
-sociogram
-pompoms
-painkilling
-Mahabharata
-dudine
-Hannastown
-Henka
-mazes
-ravishedly
-peats
-fault-slip
-nasiform
-devouringly
-substalagmite
 uraline
-Melisandra
-non-English
-cufflinks
-unredemptive
-guidwife
-Evans
-anise
-unsymbolized
-tinkerwise
-repenalize
-recidivous
-dipppier
-quenelle
-baulkier
-proportionability
--phony
-Aeolidae
-Cyrillaceae
-inaptly
-Amperian
-promptuary
-trophaea
-outsparkle
-epitheliomatous
-likerous
-undine
-valiseful
-Almagest
-sternway
-woad-painted
-Lupinus
-tilty
-nondichogamic
-sabre
-dislikeful
-Artocarpus
-refiners
-Seeder
-woomeras
-three-aisled
-twistical
-vermi-
-alefnull
-carpium
-Barboza
-astrometeorology
-coderives
-cursedest
-barogram
-coalitions
-talesman
-indols
-annunciation
-noncredibly
+urinations
 vaccines
-well-accredited
-young-looking
-prize-fighter
-helming
-myelographically
-quasi-ethical
-straightforwardness
-squalliest
-girlhoods
-off-color
-bullit
-postponement
-hard-mouthed
-abortionist
-Cannstatt
-crumblingness
-rearhorse
-subemarginate
-inventory
-men-children
-cay
-reremmice
-ronnels
-liberalizations
-combinatorics
-rheumiest
-fire-retarded
-albolite
-drawings-in
-rumina
-peritoneoclysis
-neguses
-baggers
-chuter
-Naemorhedinae
-lophin
-dackered
-perigon
-serolipase
-theaterless
-autoimmunities
-calderas
-portmantle
-microstomatous
-Wenlock
-Altamahaw
-eye-lotion
-incorrupt
-cyclopentene
-antigovernment
-270268811814012655196251426
--form
-1080
-AFB
-BSRT
-Hebrew
-Macrochires
-stylopodium
+valiseful
+vaporoseness
+velds
+ventricolumna
+vermi-
+vesico-umbilical
+vice-architect
 vivificated
+vrows
+wage-plug
+walkways
+wappenschaw
+water-living
+wedgebill
+well-accredited
+well-erected
+well-prosecuted
+wharfages
+while
+white-fleshed
+whoremongering
+wigs
+winches
+winkled
+wisha
+woad-painted
 wonton
+woomeras
 worldly-mindedness
+wrothsome
+yachtmanship
+yawney
 yerking
+young-looking
+zamarra
+zephyr-fanned
 zorils
-==22093== 
-==22093== HEAP SUMMARY:
-==22093==     in use at exit: 42,153 bytes in 1,989 blocks
-==22093==   total heap usage: 2,004 allocs, 15 frees, 43,609 bytes allocated
-==22093== 
-==22093== Searching for pointers to 1,989 not-freed blocks
-==22093== Checked 85,504 bytes
-==22093== 
-==22093== 23,712 (240 direct, 23,472 indirect) bytes in 10 blocks are definitely lost in loss record 4 of 4
-==22093==    at 0x4C2B067: malloc (vg_replace_malloc.c:380)
-==22093==    by 0x40164A: newNode (List.c:42)
-==22093==    by 0x401D9E: insertBefore (List.c:279)
-==22093==    by 0x40150D: main (Lex.c:70)
-==22093== 
-==22093== LEAK SUMMARY:
-==22093==    definitely lost: 240 bytes in 10 blocks
-==22093==    indirectly lost: 23,472 bytes in 978 blocks
-==22093==      possibly lost: 0 bytes in 0 blocks
-==22093==    still reachable: 18,441 bytes in 1,001 blocks
-==22093==         suppressed: 0 bytes in 0 blocks
-==22093== Reachable blocks (those to which a pointer was found) are not shown.
-==22093== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==22093== 
-==22093== ERROR SUMMARY: 2025 errors from 5 contexts (suppressed: 0 from 0)
-==22093== 
-==22093== 12 errors in context 1 of 5:
-==22093== Invalid read of size 1
-==22093==    at 0x4C30904: __GI_strlen (vg_replace_strmem.c:470)
-==22093==    by 0x4EA9FB4: fputs (iofputs.c:34)
-==22093==    by 0x4015CE: main (Lex.c:83)
-==22093==  Address 0x5210986 is 0 bytes after a block of size 6 alloc'd
-==22093==    at 0x4C2F7C8: calloc (vg_replace_malloc.c:1117)
-==22093==    by 0x4013AD: main (Lex.c:50)
-==22093== 
-==22093== 
-==22093== 12 errors in context 2 of 5:
-==22093== Invalid read of size 1
-==22093==    at 0x4E88079: vfprintf (vfprintf.c:1635)
-==22093==    by 0x4E8E4E8: printf (printf.c:34)
-==22093==    by 0x40159C: main (Lex.c:82)
-==22093==  Address 0x5210986 is 0 bytes after a block of size 6 alloc'd
-==22093==    at 0x4C2F7C8: calloc (vg_replace_malloc.c:1117)
-==22093==    by 0x4013AD: main (Lex.c:50)
-==22093== 
-==22093== 
-==22093== 1000 errors in context 3 of 5:
-==22093== Invalid read of size 1
-==22093==    at 0x4E88079: vfprintf (vfprintf.c:1635)
-==22093==    by 0x4E8E4E8: printf (printf.c:34)
-==22093==    by 0x401402: main (Lex.c:52)
-==22093==  Address 0x520b4cc is 0 bytes after a block of size 12 alloc'd
-==22093==    at 0x4C2F7C8: calloc (vg_replace_malloc.c:1117)
-==22093==    by 0x4013AD: main (Lex.c:50)
-==22093== 
-==22093== 
-==22093== 1000 errors in context 4 of 5:
-==22093== Invalid write of size 1
-==22093==    at 0x4C309E3: strcpy (vg_replace_strmem.c:523)
-==22093==    by 0x4013D9: main (Lex.c:51)
-==22093==  Address 0x520b4cc is 0 bytes after a block of size 12 alloc'd
-==22093==    at 0x4C2F7C8: calloc (vg_replace_malloc.c:1117)
-==22093==    by 0x4013AD: main (Lex.c:50)
-==22093== 
-==22093== ERROR SUMMARY: 2025 errors from 5 contexts (suppressed: 0 from 0)
+==16139== 
+==16139== HEAP SUMMARY:
+==16139==     in use at exit: 18,441 bytes in 1,001 blocks
+==16139==   total heap usage: 2,004 allocs, 1,003 frees, 43,609 bytes allocated
+==16139== 
+==16139== Searching for pointers to 1,001 not-freed blocks
+==16139== Checked 85,504 bytes
+==16139== 
+==16139== LEAK SUMMARY:
+==16139==    definitely lost: 0 bytes in 0 blocks
+==16139==    indirectly lost: 0 bytes in 0 blocks
+==16139==      possibly lost: 0 bytes in 0 blocks
+==16139==    still reachable: 18,441 bytes in 1,001 blocks
+==16139==         suppressed: 0 bytes in 0 blocks
+==16139== Reachable blocks (those to which a pointer was found) are not shown.
+==16139== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==16139== 
+==16139== ERROR SUMMARY: 3000 errors from 3 contexts (suppressed: 0 from 0)
+==16139== 
+==16139== 1000 errors in context 1 of 3:
+==16139== Invalid read of size 1
+==16139==    at 0x4C30904: __GI_strlen (vg_replace_strmem.c:470)
+==16139==    by 0x4EA9FB4: fputs (iofputs.c:34)
+==16139==    by 0x4015A2: main (Lex.c:82)
+==16139==  Address 0x5210986 is 0 bytes after a block of size 6 alloc'd
+==16139==    at 0x4C2F7C8: calloc (vg_replace_malloc.c:1117)
+==16139==    by 0x4013AA: main (Lex.c:50)
+==16139== 
+==16139== 
+==16139== 1000 errors in context 2 of 3:
+==16139== Invalid read of size 1
+==16139==    at 0x4E88079: vfprintf (vfprintf.c:1635)
+==16139==    by 0x4E8E4E8: printf (printf.c:34)
+==16139==    by 0x401570: main (Lex.c:81)
+==16139==  Address 0x5210986 is 0 bytes after a block of size 6 alloc'd
+==16139==    at 0x4C2F7C8: calloc (vg_replace_malloc.c:1117)
+==16139==    by 0x4013AA: main (Lex.c:50)
+==16139== 
+==16139== 
+==16139== 1000 errors in context 3 of 3:
+==16139== Invalid write of size 1
+==16139==    at 0x4C309E3: strcpy (vg_replace_strmem.c:523)
+==16139==    by 0x4013D6: main (Lex.c:51)
+==16139==  Address 0x520b4cc is 0 bytes after a block of size 12 alloc'd
+==16139==    at 0x4C2F7C8: calloc (vg_replace_malloc.c:1117)
+==16139==    by 0x4013AA: main (Lex.c:50)
+==16139== 
+==16139== ERROR SUMMARY: 3000 errors from 3 contexts (suppressed: 0 from 0)

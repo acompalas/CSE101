@@ -14,7 +14,7 @@ int main(int argc, char *argv[]){
 	
 	List A = newList();
 	List B = newList();
-
+	List C = NULL;
 	int i;
 
 	for(i = 1; i <= 20; i++){
@@ -47,34 +47,69 @@ int main(int argc, char *argv[]){
 		printf("moveBack() failed\n");
 	}
 
-	clear(A);
-	if(length(A) == 0){
+	clear(B);
+	if(length(B) == 0){
 		printf("clear() passed\n");
 	}else{
 		printf("clear() failed\n");
 	}
 
-	moveFront(B);
-	moveNext(B);
-	if(index(B) == 1){
+	moveFront(A);
+	moveNext(A);
+	if(index(A) == 1){
 		printf("moveNext() test1 passed\n");
 	}else{
 		printf("moveNext() test1 failed\n");
 	}
 
-	moveBack(B);
-	moveNext(B);
-	if(index(B) == -1){
+	moveBack(A);
+	moveNext(A);
+	if(index(A) == -1){
 		printf("moveNext() test2 passed\n");
 	}else{
 		printf("moveNext() test2 failed\n");
 	}
 
-	prepend(A, 4);
-	if(front(A) == 4){
+	prepend(B, 4);
+	if(front(B) == 4){
 		printf("prepend() passed\n");
-		
-	return(0);
+	}else{
+		printf("prepend() failed\n");
+	}
+
+	append(B, 7);
+	if(back(B) == 7){
+		printf("append() passed\n");
+	}else{
+		printf("append() failed\n");
+	}
+
+	C = copyList(B);
+	if(equals(B, C) == true){
+		printf("copyList() passed\n");
+	}else{
+		printf("copyList() failed\n");
+	}
+
+	moveFront(A);
+	for(i=0; i<5; i++) moveNext(A); // at index 5
+	insertBefore(A, -7);            // at index 6
+	for(i=0; i<9; i++) moveNext(A); // at index 15
+   	insertAfter(A, -2);
+   	for(i=0; i<5; i++) movePrev(A); // at index 10
+   	delete(A);
+   	printList(stdout,A);
+   	printf("\n");
+   	printf("%d\n", length(A));
+   	clear(A);
+   	printf("%d\n", length(A));
+
+   	freeList(&A);
+   	freeList(&B);
+   	freeList(&C);
+
+
+   	return(0);
 
 }
 

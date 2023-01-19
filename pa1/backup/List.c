@@ -1,12 +1,12 @@
 /*
- ----------------------------------------
- Class: CSE101
- Project: pa1
- Name: Anderson Compalas
- CRUZID: 1793470
+----------------------------------------
+Class: CSE101
+Project: pa1
+Name: Anderson Compalas
+CRUZID: 1793470
  Filename: List.c
- ----------------------------------------
- */
+----------------------------------------
+*/
 
 #include "List.h"
 #include <stdio.h>
@@ -126,27 +126,22 @@ int get(List L){
 }
 
 bool equals(List A, List B){
-	int eq = 0;
-	Node x = NULL;
-	Node y = NULL;
+	Node C = NULL;
+	Node D = NULL;
+	if(length(A) != length(B)){
+		return false;
+	}
+	C = A->front;
+	D = B->front;
+	while(C != NULL && D != NULL){
+		if(C->data != D->data){
+			return false;
+		}
+		C = C->next;
+		D = D->next;
+	}
+	return true;
 	
-	if(A == NULL || B == NULL){
-		printf("Error: calling equals() on NULL object\n");
-		exit(EXIT_FAILURE);
-	}
-	
-	eq = (A->len == B->len);
-	x = A->front;
-	y = B->front;
-	while(eq && x!= NULL && y!= NULL){
-		eq = (x->data = y->data);
-		x = x->next;
-		y = y->next;
-	}
-	if(eq == 1){
-		return true;
-	}
-	return false;
 }
 
 //-----------------------------------------------	
@@ -284,7 +279,7 @@ void insertBefore(List L, int data){
 	}
 	else{
 		to_add->prev = L->cur->prev;
-		L->cur->prev = to_add;
+		L->cur->prev->next = to_add;
 		to_add->next = L->cur;
 		L->cur->prev = to_add;
 	}
@@ -460,4 +455,5 @@ List concatList(List A, List B){
  	
 
 /* ------------------------------------------------ END OF FILE ---------------------------------------------------------- */
+
 
