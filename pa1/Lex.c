@@ -86,6 +86,10 @@ int main(int argc, char *argv[]){
 	// Close files and free memory
 	fclose(in);
 	fclose(out);
+	for(int j = 0; j < n; j++){
+		free(arr[j]);
+	}
+	free(arr);
 	freeList(&list);
 	exit(EXIT_SUCCESS);
 }
