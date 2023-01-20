@@ -11,6 +11,7 @@ CRUZID: 1793470
 #include "List.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include<assert.h>
 #include <string.h>
 #include <stdbool.h>
 
@@ -40,10 +41,11 @@ typedef struct ListObj{
 
 Node newNode(int data){
 	Node N = malloc(sizeof(NodeObj));
+	assert( N !=NULL );
 	N->data = data;
 	N->prev = NULL;
 	N->next = NULL;
-	return N;
+	return(N);
 }
 
 void freeNode(Node *fN){
@@ -54,19 +56,21 @@ void freeNode(Node *fN){
 }
 
 List newList(void){
-	List newL = malloc(sizeof(ListObj));
+	List newL; 
+	newL = malloc(sizeof(ListObj));
+	assert(newL !=NULL);
 	newL->len = 0;
 	newL->index = -1;
 	newL->cur = NULL;
 	newL->front = NULL;
 	newL->back = NULL;
-	return newL;
+	return (newL);
 }
 
 void freeList(List *pL){
 	if(pL != NULL && *pL != NULL){
-		if(length(*pL) != 0){
-			clear(*pL);
+		while(length(*pL) != 0) { 
+			clear(*pL); 
 		}
 		free(*pL);
 		*pL = NULL;
@@ -153,11 +157,12 @@ void clear(List L){
 		printf("Error: calling clear() on NULL object\n");
 		exit(EXIT_FAILURE);
 	}
-	while(L->len > 0){
+	while(length(L) > 0){
 		Node F = L->front;
 		Node B = L->back;
 		if(F != B){
 			deleteFront(L);
+			deleteBack(L);
 		}
 		else{
 			moveFront(L);
@@ -422,7 +427,7 @@ void printList(FILE* out, List L){
 	}
 	Node to_print = L->front;
 	while(to_print != NULL){
-		fprintf(out, "%d", to_print->data);
+		fprintf(out, "%d ", to_print->data);
 		to_print = to_print->next;
 	}
 }

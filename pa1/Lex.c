@@ -86,7 +86,6 @@ int main(int argc, char *argv[]){
 	// Close files and free memory
 	fclose(in);
 	fclose(out);
-	clear(list);
 	freeList(&list);
 	exit(EXIT_SUCCESS);
 }

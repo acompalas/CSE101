@@ -2,7 +2,7 @@
 //Class: CSE101
 //Project: pa1:
 //Name:Anderson Compalas
-//CRUZID:
+//CRUZID: 1793470
 //----------------------------------------------------------------
 
 #include <stdio.h>
