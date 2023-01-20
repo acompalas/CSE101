@@ -47,7 +47,7 @@ int main(int argc, char *argv[]){
 	char** arr = calloc(n, sizeof(char*));
 	for(int i = 0; i < n; i++){
 		fgets(line, MAX_LEN, in);
-		arr[i] = calloc(strlen(line), sizeof(char));
+		arr[i] = calloc(strlen(line)+1, sizeof(char));
 		strcpy(arr[i], line);
 	}
 
