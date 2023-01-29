@@ -4,9 +4,10 @@ Name: Anderson Compalas
 CRUZID: 1793470
 Filename: README
 
-FindPath.h		headerfile for List.c functions 
-Graph.c
-Graph.h
-GraphTest.c
-List.c		contains functions for implementations
-List.h
+FindPath.c	handles I/O, uses helper function, includes main()
+Graph.c     contains Graph ADT function implementations
+Graph.h     contains Graph ADT function declarations
+GraphTest.c test harness for Graph ADT functions
+List.c		contains List ADT function implementations
+List.h      contains List ADT function declarations
+Makefile    includes make scripts for file compilation
