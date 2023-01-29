@@ -1,7 +1,7 @@
 /*
 ----------------------------------------------------------
 Class: CSE101
-Project: pa1
+Project: pa2
 Name: Anderson Compalas
 CRUZID: 1793470
 Filename: List.h

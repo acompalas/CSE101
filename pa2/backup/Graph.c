@@ -1,3 +1,13 @@
+/*
+-------------------------------------------------
+Class: CSE101
+Project: pa2
+Name: Anderson Compalas
+CRUZID: 1793470
+Filename: Graph.c
+-------------------------------------------------
+*/
+
 #include "Graph.h"
 #include <stdlib.h>
 
