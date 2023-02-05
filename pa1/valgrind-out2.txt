@@ -1,74 +1,74 @@
-==1206== Memcheck, a memory error detector
-==1206== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==1206== Using Valgrind-3.17.0-07f0cdcbb4-20210319X and LibVEX; rerun with -h for copyright info
-==1206== Command: ./Lex infile2.txt outfile2.txt
-==1206== 
---1206-- Valgrind options:
---1206--    --leak-check=full
---1206--    -v
---1206-- Contents of /proc/version:
---1206--   Linux version 3.10.0-1160.76.1.el7.x86_64 (mockbuild@kbuilder.bsys.centos.org) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-44) (GCC) ) #1 SMP Wed Aug 10 16:21:17 UTC 2022
---1206-- 
---1206-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand-rdseed
---1206-- Page sizes: currently 4096, max supported 4096
---1206-- Valgrind library directory: /opt/rh/devtoolset-11/root/usr/libexec/valgrind
---1206-- Reading syms from /afs/cats.ucsc.edu/users/m/acompala/cse101/pa1/Lex
---1206-- Reading syms from /usr/lib64/ld-2.17.so
---1206--   Considering /usr/lib/debug/.build-id/62/c449974331341bb08dcce3859560a22af1e172.debug ..
---1206--   .. build-id is valid
---1206-- Reading syms from /opt/rh/devtoolset-11/root/usr/libexec/valgrind/memcheck-amd64-linux
---1206--    object doesn't have a symbol table
---1206--    object doesn't have a dynamic symbol table
---1206-- Scheduler: using generic scheduler lock implementation.
---1206-- Reading suppressions file: /opt/rh/devtoolset-11/root/usr/libexec/valgrind/default.supp
-==1206== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-1206-by-acompala-on-unix6.lt.ucsc.edu
-==1206== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-1206-by-acompala-on-unix6.lt.ucsc.edu
-==1206== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-1206-by-acompala-on-unix6.lt.ucsc.edu
-==1206== 
-==1206== TO CONTROL THIS PROCESS USING vgdb (which you probably
-==1206== don't want to do, unless you know exactly what you're doing,
-==1206== or are doing some strange experiment):
-==1206==   /opt/rh/devtoolset-11/root/usr/libexec/valgrind/../../bin/vgdb --pid=1206 ...command...
-==1206== 
-==1206== TO DEBUG THIS PROCESS USING GDB: start GDB like this
-==1206==   /path/to/gdb ./Lex
-==1206== and then give GDB the following command
-==1206==   target remote | /opt/rh/devtoolset-11/root/usr/libexec/valgrind/../../bin/vgdb --pid=1206
-==1206== --pid is optional if only one valgrind process is running
-==1206== 
---1206-- REDIR: 0x4019e40 (ld-linux-x86-64.so.2:strlen) redirected to 0x580cd495 (???)
---1206-- REDIR: 0x4019c10 (ld-linux-x86-64.so.2:index) redirected to 0x580cd4af (???)
---1206-- Reading syms from /opt/rh/devtoolset-11/root/usr/libexec/valgrind/vgpreload_core-amd64-linux.so
---1206-- Reading syms from /opt/rh/devtoolset-11/root/usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
-==1206== WARNING: new redirection conflicts with existing -- ignoring it
---1206--     old: 0x04019e40 (strlen              ) R-> (0000.0) 0x580cd495 ???
---1206--     new: 0x04019e40 (strlen              ) R-> (2007.0) 0x04c30990 strlen
---1206-- REDIR: 0x4019dc0 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4c31aa0 (strcmp)
---1206-- REDIR: 0x401aa80 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4c35b30 (mempcpy)
---1206-- Reading syms from /usr/lib64/libc-2.17.so
---1206--   Considering /usr/lib/debug/.build-id/94/70e279388f7f9cb2ed3b2872d0c2095b191ff4.debug ..
---1206--   .. build-id is valid
---1206-- REDIR: 0x4ecb1d0 (libc.so.6:strcasecmp) redirected to 0x4a247af (_vgnU_ifunc_wrapper)
---1206-- REDIR: 0x4ec7f40 (libc.so.6:strnlen) redirected to 0x4a247af (_vgnU_ifunc_wrapper)
---1206-- REDIR: 0x4ecd4d0 (libc.so.6:strncasecmp) redirected to 0x4a247af (_vgnU_ifunc_wrapper)
---1206-- REDIR: 0x4eca9a0 (libc.so.6:memset) redirected to 0x4a247af (_vgnU_ifunc_wrapper)
---1206-- REDIR: 0x4eca950 (libc.so.6:memcpy@GLIBC_2.2.5) redirected to 0x4a247af (_vgnU_ifunc_wrapper)
---1206-- REDIR: 0x4ec9930 (libc.so.6:__GI_strrchr) redirected to 0x4c30350 (__GI_strrchr)
---1206-- REDIR: 0x4ec0740 (libc.so.6:malloc) redirected to 0x4c2afe0 (malloc)
---1206-- REDIR: 0x4ee0a10 (libc.so.6:__GI_strstr) redirected to 0x4c35dc0 (__strstr_sse2)
---1206-- REDIR: 0x4eca030 (libc.so.6:memchr) redirected to 0x4c31b40 (memchr)
---1206-- REDIR: 0x4ecfc30 (libc.so.6:__GI_memcpy) redirected to 0x4c32750 (__GI_memcpy)
---1206-- REDIR: 0x4ec1160 (libc.so.6:calloc) redirected to 0x4c2f72e (calloc)
---1206-- REDIR: 0x4ec7e10 (libc.so.6:strlen) redirected to 0x4a247af (_vgnU_ifunc_wrapper)
---1206-- REDIR: 0x4faa8b0 (libc.so.6:__strlen_sse2_pminub) redirected to 0x4c308d0 (strlen)
---1206-- REDIR: 0x4ec7850 (libc.so.6:strcpy) redirected to 0x4a247af (_vgnU_ifunc_wrapper)
---1206-- REDIR: 0x4ed57d0 (libc.so.6:__strcpy_sse2_unaligned) redirected to 0x4c309b0 (strcpy)
---1206-- REDIR: 0x4ec63c0 (libc.so.6:strcmp) redirected to 0x4a247af (_vgnU_ifunc_wrapper)
---1206-- REDIR: 0x4f79fc0 (libc.so.6:__strcmp_sse42) redirected to 0x4c31a50 (__strcmp_sse42)
---1206-- REDIR: 0x4ed14b0 (libc.so.6:strchrnul) redirected to 0x4c35650 (strchrnul)
---1206-- REDIR: 0x4ecab70 (libc.so.6:__GI_mempcpy) redirected to 0x4c35860 (__GI_mempcpy)
---1206-- REDIR: 0x4ec0b60 (libc.so.6:free) redirected to 0x4c2d566 (free)
---1206-- REDIR: 0x4ec7e60 (libc.so.6:__GI_strlen) redirected to 0x4c308f0 (__GI_strlen)
+==8262== Memcheck, a memory error detector
+==8262== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==8262== Using Valgrind-3.17.0-07f0cdcbb4-20210319X and LibVEX; rerun with -h for copyright info
+==8262== Command: ./Lex infile2.txt outfile2.txt
+==8262== 
+--8262-- Valgrind options:
+--8262--    --leak-check=full
+--8262--    -v
+--8262-- Contents of /proc/version:
+--8262--   Linux version 3.10.0-1160.76.1.el7.x86_64 (mockbuild@kbuilder.bsys.centos.org) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-44) (GCC) ) #1 SMP Wed Aug 10 16:21:17 UTC 2022
+--8262-- 
+--8262-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand-rdseed
+--8262-- Page sizes: currently 4096, max supported 4096
+--8262-- Valgrind library directory: /opt/rh/devtoolset-11/root/usr/libexec/valgrind
+--8262-- Reading syms from /afs/cats.ucsc.edu/users/m/acompala/cse101/pa1/Lex
+--8262-- Reading syms from /usr/lib64/ld-2.17.so
+--8262--   Considering /usr/lib/debug/.build-id/62/c449974331341bb08dcce3859560a22af1e172.debug ..
+--8262--   .. build-id is valid
+--8262-- Reading syms from /opt/rh/devtoolset-11/root/usr/libexec/valgrind/memcheck-amd64-linux
+--8262--    object doesn't have a symbol table
+--8262--    object doesn't have a dynamic symbol table
+--8262-- Scheduler: using generic scheduler lock implementation.
+--8262-- Reading suppressions file: /opt/rh/devtoolset-11/root/usr/libexec/valgrind/default.supp
+==8262== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-8262-by-acompala-on-unix4.lt.ucsc.edu
+==8262== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-8262-by-acompala-on-unix4.lt.ucsc.edu
+==8262== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-8262-by-acompala-on-unix4.lt.ucsc.edu
+==8262== 
+==8262== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==8262== don't want to do, unless you know exactly what you're doing,
+==8262== or are doing some strange experiment):
+==8262==   /opt/rh/devtoolset-11/root/usr/libexec/valgrind/../../bin/vgdb --pid=8262 ...command...
+==8262== 
+==8262== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==8262==   /path/to/gdb ./Lex
+==8262== and then give GDB the following command
+==8262==   target remote | /opt/rh/devtoolset-11/root/usr/libexec/valgrind/../../bin/vgdb --pid=8262
+==8262== --pid is optional if only one valgrind process is running
+==8262== 
+--8262-- REDIR: 0x4019e40 (ld-linux-x86-64.so.2:strlen) redirected to 0x580cd495 (???)
+--8262-- REDIR: 0x4019c10 (ld-linux-x86-64.so.2:index) redirected to 0x580cd4af (???)
+--8262-- Reading syms from /opt/rh/devtoolset-11/root/usr/libexec/valgrind/vgpreload_core-amd64-linux.so
+--8262-- Reading syms from /opt/rh/devtoolset-11/root/usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
+==8262== WARNING: new redirection conflicts with existing -- ignoring it
+--8262--     old: 0x04019e40 (strlen              ) R-> (0000.0) 0x580cd495 ???
+--8262--     new: 0x04019e40 (strlen              ) R-> (2007.0) 0x04c30990 strlen
+--8262-- REDIR: 0x4019dc0 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4c31aa0 (strcmp)
+--8262-- REDIR: 0x401aa80 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4c35b30 (mempcpy)
+--8262-- Reading syms from /usr/lib64/libc-2.17.so
+--8262--   Considering /usr/lib/debug/.build-id/94/70e279388f7f9cb2ed3b2872d0c2095b191ff4.debug ..
+--8262--   .. build-id is valid
+--8262-- REDIR: 0x4ecb1d0 (libc.so.6:strcasecmp) redirected to 0x4a247af (_vgnU_ifunc_wrapper)
+--8262-- REDIR: 0x4ec7f40 (libc.so.6:strnlen) redirected to 0x4a247af (_vgnU_ifunc_wrapper)
+--8262-- REDIR: 0x4ecd4d0 (libc.so.6:strncasecmp) redirected to 0x4a247af (_vgnU_ifunc_wrapper)
+--8262-- REDIR: 0x4eca9a0 (libc.so.6:memset) redirected to 0x4a247af (_vgnU_ifunc_wrapper)
+--8262-- REDIR: 0x4eca950 (libc.so.6:memcpy@GLIBC_2.2.5) redirected to 0x4a247af (_vgnU_ifunc_wrapper)
+--8262-- REDIR: 0x4ec9930 (libc.so.6:__GI_strrchr) redirected to 0x4c30350 (__GI_strrchr)
+--8262-- REDIR: 0x4ec0740 (libc.so.6:malloc) redirected to 0x4c2afe0 (malloc)
+--8262-- REDIR: 0x4ee0a10 (libc.so.6:__GI_strstr) redirected to 0x4c35dc0 (__strstr_sse2)
+--8262-- REDIR: 0x4eca030 (libc.so.6:memchr) redirected to 0x4c31b40 (memchr)
+--8262-- REDIR: 0x4ecfc30 (libc.so.6:__GI_memcpy) redirected to 0x4c32750 (__GI_memcpy)
+--8262-- REDIR: 0x4ec1160 (libc.so.6:calloc) redirected to 0x4c2f72e (calloc)
+--8262-- REDIR: 0x4ec7e10 (libc.so.6:strlen) redirected to 0x4a247af (_vgnU_ifunc_wrapper)
+--8262-- REDIR: 0x4faa8b0 (libc.so.6:__strlen_sse2_pminub) redirected to 0x4c308d0 (strlen)
+--8262-- REDIR: 0x4ec7850 (libc.so.6:strcpy) redirected to 0x4a247af (_vgnU_ifunc_wrapper)
+--8262-- REDIR: 0x4ed57d0 (libc.so.6:__strcpy_sse2_unaligned) redirected to 0x4c309b0 (strcpy)
+--8262-- REDIR: 0x4ec63c0 (libc.so.6:strcmp) redirected to 0x4a247af (_vgnU_ifunc_wrapper)
+--8262-- REDIR: 0x4f79fc0 (libc.so.6:__strcmp_sse42) redirected to 0x4c31a50 (__strcmp_sse42)
+--8262-- REDIR: 0x4ed14b0 (libc.so.6:strchrnul) redirected to 0x4c35650 (strchrnul)
+--8262-- REDIR: 0x4ecab70 (libc.so.6:__GI_mempcpy) redirected to 0x4c35860 (__GI_mempcpy)
+--8262-- REDIR: 0x4ec0b60 (libc.so.6:free) redirected to 0x4c2d566 (free)
+--8262-- REDIR: 0x4ec7e60 (libc.so.6:__GI_strlen) redirected to 0x4c308f0 (__GI_strlen)
 270 910 268 81 911 477 200 374 922 995 914 146 874 597 867 808 930 245 623 802 459 367 18 76 691 939 667 621 273 142 863 424 140 741 964 736 478 368 487 612 828 178 168 20 493 230 19 809 912 397 536 152 666 323 463 119 645 684 771 679 900 154 713 799 74 344 244 816 46 403 58 793 523 885 144 151 14 886 473 311 835 265 422 672 731 642 330 466 105 87 50 548 834 130 338 547 212 869 768 64 99 180 925 380 602 0 475 883 306 631 865 895 694 480 59 132 680 183 842 984 665 363 70 420 314 582 847 830 725 63 13 748 400 767 806 337 47 298 206 727 36 312 595 742 606 544 622 433 504 201 333 11 88 700 553 364 932 24 657 103 267 699 318 192 696 794 708 605 398 241 649 788 786 111 634 502 342 377 417 994 287 347 321 841 963 340 84 189 165 739 386 191 479 753 580 163 254 977 937 613 469 30 673 94 124 226 278 6 901 947 647 131 176 80 999 16 149 184 316 409 173 415 625 638 528 940 29 764 990 554 360 752 304 220 982 172 461 943 15 159 908 846 147 379 145 128 329 557 728 671 260 746 474 836 599 181 83 108 72 391 345 729 300 157 675 432 402 143 351 960 429 662 33 991 423 129 435 222 439 520 938 629 604 60 970 663 506 486 302 407 711 751 291 117 500 983 879 223 633 296 460 678 779 585 944 470 941 521 861 784 974 677 365 530 375 217 853 817 199 358 740 346 766 565 79 555 488 778 497 718 236 704 965 525 897 715 942 575 998 986 247 703 2 66 285 705 538 280 503 495 639 773 669 349 822 892 543 436 489 274 153 229 906 812 873 876 929 783 127 852 698 39 352 86 978 868 792 884 458 404 158 781 246 395 343 414 724 411 688 348 683 833 759 813 370 608 831 237 918 155 540 205 449 134 170 7 515 826 551 717 213 996 590 658 858 519 890 307 465 421 709 878 541 976 221 800 712 65 455 162 293 295 57 434 818 376 644 697 190 233 257 579 353 744 209 832 805 958 490 512 624 572 373 371 204 594 31 807 279 810 682 156 408 899 71 385 628 93 297 962 438 125 706 953 641 396 856 648 610 52 249 761 516 320 390 601 69 101 357 37 562 567 726 797 568 366 811 871 3 73 616 636 41 913 838 997 242 946 695 720 113 8 281 851 607 112 54 123 827 174 968 693 533 450 755 668 498 870 837 719 780 392 804 637 654 388 730 619 513 35 289 326 877 844 283 430 21 973 38 919 34 431 441 864 626 985 496 116 770 197 482 286 476 240 462 193 552 887 120 62 791 969 457 294 27 43 859 216 993 228 750 336 617 702 272 276 510 670 269 839 166 829 425 28 275 382 954 891 248 819 981 573 760 454 264 896 277 23 577 948 927 587 687 820 214 250 133 10 701 484 339 651 650 589 401 121 456 588 959 141 171 437 855 685 372 723 109 537 485 187 492 917 560 765 263 872 92 25 98 774 845 185 104 586 882 795 218 110 785 447 821 756 5 315 319 32 889 569 44 501 468 987 980 61 355 801 288 526 416 576 266 137 840 640 309 721 570 238 535 754 327 310 881 772 992 317 961 331 48 664 135 707 282 681 566 67 89 356 150 593 78 952 749 369 564 915 909 169 782 261 177 410 440 776 194 518 182 574 253 955 12 907 674 775 481 350 888 53 630 966 849 905 195 9 90 136 931 97 857 529 549 207 394 904 160 971 471 592 389 328 405 262 975 308 732 972 161 22 532 467 979 118 928 527 126 164 798 82 179 224 299 531 743 42 4 325 208 203 472 406 383 559 618 451 139 988 354 550 446 763 600 659 854 453 51 660 655 45 733 427 292 56 737 322 710 234 509 235 880 202 661 591 578 676 332 653 620 689 611 814 68 584 957 239 393 85 722 499 923 445 17 428 956 198 850 227 1 690 967 534 442 893 122 875 215 418 735 603 219 303 232 508 100 313 483 443 75 362 542 945 546 769 387 598 448 494 745 716 686 738 989 40 106 505 77 934 862 714 243 926 903 335 646 796 692 419 632 378 866 49 571 225 464 643 609 102 916 556 507 258 188 789 825 935 522 824 614 656 114 334 823 860 256 596 412 747 444 255 920 787 524 627 561 167 381 511 583 115 517 777 259 539 107 138 305 210 324 898 803 558 301 175 96 491 902 452 848 341 757 758 894 231 949 921 186 762 652 936 290 635 26 790 843 271 399 95 91 950 252 359 211 545 361 615 384 148 581 563 924 55 933 196 413 284 734 251 951 815 514 426 
 -form
 -phony
@@ -1070,11 +1070,11 @@ young-looking
 zamarra
 zephyr-fanned
 zorils
-==1206== 
-==1206== HEAP SUMMARY:
-==1206==     in use at exit: 0 bytes in 0 blocks
-==1206==   total heap usage: 2,004 allocs, 2,004 frees, 44,609 bytes allocated
-==1206== 
-==1206== All heap blocks were freed -- no leaks are possible
-==1206== 
-==1206== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==8262== 
+==8262== HEAP SUMMARY:
+==8262==     in use at exit: 0 bytes in 0 blocks
+==8262==   total heap usage: 2,004 allocs, 2,004 frees, 44,609 bytes allocated
+==8262== 
+==8262== All heap blocks were freed -- no leaks are possible
+==8262== 
+==8262== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

@@ -38,10 +38,10 @@ Graph newGraph(int n) {
     G->parent    = (int*) malloc(sizeof(int)  * (n + 1));
     G->distance  = (int*) malloc(sizeof(int)  * (n + 1));
     for (int i = 1; i <= n; i ++) {
-    G->neighbors[i] = newList();
-    G->color[i]     = COLOR_WHITE;
-    G->parent[i]    = NIL;
-    G->distance[i]  = INF;
+    	G->neighbors[i] = newList();
+    	G->color[i]     = COLOR_WHITE;
+    	G->parent[i]    = NIL;
+    	G->distance[i]  = INF;
     }
     G->source = NIL;
     return G;
@@ -143,7 +143,7 @@ void addEdge(Graph G, int u, int v) {
     G->size ++;
     }
 
-    void addArc(Graph G, int u, int v) {
+void addArc(Graph G, int u, int v) {
     addArcHelper(G, u, v);
     G->size ++;
 }
