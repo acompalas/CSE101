@@ -1,0 +1,17 @@
+Class: CSE101
+Project: pa3
+Name: Anderson Compalas
+CRUZID: 1793470
+Filename: README
+ 
+FindComponents.c  handles I/O, uses helper function, includes main()
+Graph.c     contains Graph ADT function implementations
+	* front of list S is top of stack in DFS() and Visit()
+	* DFS() pops from stack S and Visit() pushes to new temporary stack newS then in DFS() copy newS to S then freeList(&newS)
+Graph.h     contains Graph ADT function declarations
+	*addArcHelper exists for initial confusion regarding increasing size of G but issue was resolved by editing addEdge(). Kept the same because I did not want to rewrite.
+GraphTest.c test harness for Graph ADT functions
+List.c      contains List ADT function implementations
+List.h      contains List ADT function declarations
+Makefile    includes make scripts for file compilation
+README		table of contents for pa3
