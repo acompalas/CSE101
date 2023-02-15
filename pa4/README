@@ -1,0 +1,16 @@
+Class: CSE101
+Project: pa4
+Name: Anderson Compalas
+CRUZID: 1793470
+Filename: README
+
+Sparse.c    written by Anderson Compalas
+Matrix.c    Defines functions described in Matrix.h
+Matrix.h    Header file for Matrix.c functions
+MatrixTest.c Test harness for Matrix.c functions
+List.c       Defines functions described in List.h
+ListTest.c
+List.h      Header file for List.c functions
+README      table of contents for pa4
+Makefile    runs make
+
