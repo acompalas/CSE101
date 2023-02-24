@@ -135,7 +135,7 @@ ListElement List::peekPrev() const{
 // Deletes all elements in this List, setting it to the empty state.
 void List::clear(){
 	moveFront();
-    while (length() > 0) {
+    while (afterCursor != backDummy) {
         eraseAfter();
     }
 	beforeCursor = frontDummy;
@@ -278,16 +278,14 @@ int List::findNext(ListElement x){
 		throw std:: length_error("List: findNext(): empty List");
 	}
 	while(afterCursor != backDummy){
-		if(afterCursor->data == x){
+		if(peekNext() == x){
 			moveNext();
 			return position();
 		}
 		afterCursor = afterCursor->next;
 		pos_cursor++;
 	}
-	beforeCursor = backDummy->prev;
-	afterCursor = backDummy;
-	pos_cursor = length();
+	moveBack();
 	return(-1);
 }
 
@@ -301,15 +299,15 @@ int List::findPrev(ListElement x){
 	if(length() == 0){
 		throw std:: length_error("List: findPrev(): empty List");
 	}
-	Node* temp = beforeCursor;
-	while(temp != frontDummy){
-		if(temp->data == x){
-			beforeCursor = temp->prev;
+	while(beforeCursor != frontDummy){
+		if(peekPrev() == x){
+			/*beforeCursor = temp->prev;
 			afterCursor = temp;
-			pos_cursor--;
-			return pos_cursor;
+			pos_cursor--;*/
+			movePrev();
+			return position();
 		}
-		temp = temp->prev;
+		beforeCursor = beforeCursor->prev;
 		pos_cursor--;
 	}
 	moveFront();
@@ -324,53 +322,42 @@ int List::findPrev(ListElement x){
 // is not moved with respect to the retained elements, i.e. it lies between 
 // the same two retained elements that it did before cleanup() was called.
 void List::cleanup(){
-	
-	//Preserve original cursor position
-	//int before = beforeCursor->data;
-	//int after = afterCursor->data;
-	//int after = peekNext();
-	//int after = afterCursor->data; should already be implicit
 
 	// Traverse the list
-	
 	Node* current = frontDummy->next;
+	Node* runner = nullptr;
 	int cur_flag = 0;
     while (current != backDummy) {
-		if(current == afterCursor){
-			cur_flag = 1;
-		}
-        Node* runner = current->next;
+		
+        runner = current->next;
         // Compare current node with all subsequent nodes
 		int run_flag = 0;
         while (runner != backDummy) {
             // If a duplicate is found, remove the node *only if it isn't the cursor position node
+			if(current == afterCursor){
+				cur_flag = 1;
+			}
             if (current->data == runner->data) {
 				if(runner == beforeCursor){
 					run_flag = 1;
 				}
-                Node* temp = runner;
-                runner->prev->next = runner->next;
-				runner->next->prev = runner->prev;
-				delete temp;
 				if(run_flag == 0 && cur_flag == 0){
 					pos_cursor--;
 				}
+				Node* temp = runner;
+				runner->prev->next = runner->next;
+				runner->next->prev = runner->prev;
+				delete temp;
+                runner = runner->next;
 				num_elements--;
 				
-                runner = runner->next;
             }
             else {
-                runner = runner->next;
+				runner = runner->next;
             }
         }
         current = current->next;
     }
-	/*
-	//Return cursor to original position
-	moveFront();
-	while(beforeCursor->data != before){
-		moveNext();
-	}*/
 }
 
 

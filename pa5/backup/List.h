@@ -1,3 +1,14 @@
+/*
+----------------------------------------
+Class: CSE101
+Project: pa5
+Name: Anderson Compalas
+CRUZID: 1793470
+Cruz Email: acompala
+Filename: List.h
+----------------------------------------
+*/
+
 //-----------------------------------------------------------------------------
 // List.h
 // Header file for List ADT. List is a double ended queue with a vertical
