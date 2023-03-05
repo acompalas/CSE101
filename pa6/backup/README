@@ -1,0 +1,18 @@
+----------------------------------------
+Class: CSE101
+Project: pa6
+Name: Anderson Compalas
+CRUZID: 1793470
+Cruz Email: acompala
+Filename: README
+----------------------------------------
+
+Arithmetic.cpp Top level client for the project, described above, written by you
+BigInteger.cpp BigInteger implementation file, written by you
+BigInteger.h BigInteger header file, provided, do not alter
+BigIntegerTest.cpp Test suite for the BigInteger ADT, written by you
+List.cpp List implementation file, if necessary alter from pa4
+List.h List header file, provided, do not alter
+ListTest.cpp Test suite for the List ADT, written by you
+Makefile Included in Examples/pa6, alter as you see fit
+README Content listing of the project

@@ -1,0 +1,33 @@
+----------------------------------------
+Class: CSE101
+Project: pa6
+Name: Anderson Compalas
+CRUZID: 1793470
+Cruz Email: acompala
+Filename: README
+----------------------------------------
+
+Arithmetic.cpp Top level client for the project, tests following cases: 𝐴, 𝐵, 𝐴 + 𝐵, 𝐴 − 𝐵, 𝐴 − 𝐴, 3𝐴 − 2𝐵, 𝐴𝐵, 𝐴
+2
+, 𝐵
+2
+, 9𝐴
+4 + 16𝐵
+5
+
+BigInteger.cpp Contains BigInteger ADT implementation file
+    - Handled sigum assignment in the add(), sub(), and mult() functions
+
+BigInteger.h BigInteger header file, provided by professor
+
+BigIntegerTest.cpp Test suite for the BigInteger ADT
+
+List.cpp List implementation file, changed ListElement from int to long from pa5 else everything is the same
+
+List.h List header file from pa5 ListElement is long instead of int
+
+ListTest.cpp Test suite for the List ADT
+
+Makefile Included in Examples/pa6 provided from professor
+
+README Content listing of the project
