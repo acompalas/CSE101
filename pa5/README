@@ -11,6 +11,6 @@ Filename: README
 README A catalog of submitted files and any notes to the grader
 Makefile Provided by professor
 List.h Class for List ADT Provided, did not alter. Only added name and Cruz email.
-List.cpp List ADT function implementations. Used n^2 implementation for cleanup(), uses flags to preserve cursor position.
+List.cpp List ADT function implementations. Used n^2 implementation for cleanup(), uses flags to preserve cursor position. Has errors due attempted reads of nullptrs due to not cleanup() not connecting beforeCursor and afterCursor properly
 ListTest.cpp A test harness for List ADT.
 Shuffle.cpp Prints table of number of shuffles it takes to return to original state.
