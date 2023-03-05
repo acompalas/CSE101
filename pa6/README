@@ -7,13 +7,7 @@ Cruz Email: acompala
 Filename: README
 ----------------------------------------
 
-Arithmetic.cpp Top level client for the project, tests following cases: 𝐴, 𝐵, 𝐴 + 𝐵, 𝐴 − 𝐵, 𝐴 − 𝐴, 3𝐴 − 2𝐵, 𝐴𝐵, 𝐴
-2
-, 𝐵
-2
-, 9𝐴
-4 + 16𝐵
-5
+Arithmetic.cpp Top level client for the project, tests following cases: 𝐴, 𝐵, 𝐴 + 𝐵, 𝐴 − 𝐵, 𝐴 − 𝐴, 3𝐴 − 2𝐵, 𝐴𝐵, 𝐴^2, 𝐵^2, 9𝐴^4 + 16𝐵^5
 
 BigInteger.cpp Contains BigInteger ADT implementation file
     - Handled sigum assignment in the add(), sub(), and mult() functions
