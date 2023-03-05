@@ -5,7 +5,7 @@ Project: pa6
 Name: Anderson Compalas
 CRUZID: 1793470
 Cruz Email: acompala
-Filename: BigInteger.h
+Filename: BigInteger.cpp
 ----------------------------------------
 */
 
