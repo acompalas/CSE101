@@ -1,0 +1,15 @@
+----------------------------------------
+Class: CSE101
+Project: pa7
+Name: Anderson Compalas
+CRUZID: 1793470
+Cruz Email: acompala
+Filename: README
+----------------------------------------
+
+README Written by you, a catalog of submitted files and any notes to the grader
+Makefile Provided, alter as you see fit
+Dictionary.h Provided, you may alter the "helper functions" section, but nothing else
+Dictionary.cpp Written by you, the majority of work for this project
+DictionaryTest.cpp Written by you, your test client of the Dictionary ADT
+Order.cpp Written by you, the client for this project
