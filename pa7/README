@@ -9,7 +9,16 @@ Filename: README
 
 README Written by you, a catalog of submitted files and any notes to the grader
 Makefile Provided, alter as you see fit
-Dictionary.h Provided, you may alter the "helper functions" section, but nothing else
-Dictionary.cpp Written by you, the majority of work for this project
+Dictionary.h Provided, you may alter the "helper functions" section, but nothing else 
+    -added transplant helper function declaration
+Dictionary.cpp Written by you, the majority of work for this project 
+    -added the tranplant helper function
+    -equals() functions compares two dictionaries by first converting and storing into strings before calling C++ built in string comparison function '=='. May be increasing time complexity.
 DictionaryTest.cpp Written by you, your test client of the Dictionary ADT
+    - contains professors example test client and one test from the grading script
+    - print statements to visualize errors
 Order.cpp Written by you, the client for this project
+    -reads lines from file
+    -inserts keys and values into dictionary
+    - prints inOrderString to fout
+    - prints preOrderString to fout
