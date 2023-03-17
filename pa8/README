@@ -1,0 +1,27 @@
+----------------------------------------
+Class: CSE101
+Project: pa8
+Name: Anderson Compalas
+CruzID: acompala
+Filename: README
+----------------------------------------
+
+README Written by you, a catalog of submitted files and any notes to the grader
+Makefile Provided, alter as you see fit
+- makes executables for Order.cpp, WordFrequency.cpp, and DictionaryTest.cpp
+Dictionary.h Provided, you may alter the "helper functions" sections, but nothing else
+- added RBT helper functions
+- added color to Node struct
+Dictionary.cpp Written by you, the majority of work for this project
+- added implementations for RBT helper functions
+- edited setValue() and remove() to include RBT functionality
+DictionaryTest.cpp Written by you, your test client of the Dictionary ADT
+- based on professors test client
+Order.cpp Written by you, a client for this project, unchanged from pa7
+- same from pa7
+WordFrequency.cpp Written by you, a client for this project
+- uses helper function to convert words to lowercase
+- I/O based on professor's FileIO.cpp
+- reads line from file, tokenizes each word based on string delimiter 'delim'
+- inserts unique word into dictionary incrementing value for duplicates
+- prints dictionary to outfile,
